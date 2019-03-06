@@ -19,12 +19,16 @@ class Aeroports
     private $id;
 
     /**
+     * @var string $nom
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $nom;
 
     /**
+     * @var string $pays
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $pays;
 

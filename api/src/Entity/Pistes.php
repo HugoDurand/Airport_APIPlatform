@@ -21,12 +21,16 @@ class Pistes
     private $id;
 
     /**
+     * @var string $numero
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $numero;
 
     /**
+     * @var Employes $employes
      * @ORM\ManyToMany(targetEntity="App\Entity\Employes")
+     * @Assert\NotBlank
      */
     private $employes;
 

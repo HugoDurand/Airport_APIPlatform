@@ -19,42 +19,59 @@ class Clients
     private $id;
 
     /**
+     * @var string $nom
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $nom;
 
     /**
+     * @var string $prenom
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $prenom;
 
     /**
+     * @var string $numeroTitreIdentite
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $numeroTitreIdentite;
 
     /**
+     * @var integer $age
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
      */
     private $age;
 
     /**
+     * @var string $sexe
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $sexe;
 
     /**
+     * @var string $email
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Email
      */
     private $email;
 
     /**
+     * @var integer $tel
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
      */
     private $tel;
 
     /**
+     * @var string $adresse
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $adresse;
 

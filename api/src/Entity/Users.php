@@ -19,17 +19,21 @@ class Users implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\NotBlank
      */
     private $email;
 
     /**
+     * @var array $roles
      * @ORM\Column(type="json")
+     * @Assert\NotBlank
      */
     private $roles = [];
 
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\NotBlank
      */
     private $password;
 

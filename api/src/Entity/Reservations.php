@@ -21,28 +21,38 @@ class Reservations
     private $id;
 
     /**
+     * @var  string $numero
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $numero;
 
     /**
+     * @var  Clients $clients
      * @ORM\ManyToMany(targetEntity="App\Entity\Clients")
+     * @Assert\NotBlank
      */
     private $clients;
 
     /**
+     * @var Vols $vol
      * @ORM\ManyToOne(targetEntity="App\Entity\Vols")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank
      */
     private $vol;
 
     /**
+     * @var  string $classe
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $classe;
 
     /**
+     * @var boolean $checkIn
      * @ORM\Column(type="boolean")
+     * @Assert\NotBlank
      */
     private $checkIn;
 

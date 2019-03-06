@@ -19,12 +19,16 @@ class Compagnies
     private $id;
 
     /**
+     * @var string $nom
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $nom;
 
     /**
+     * @var string $origine
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $origine;
 

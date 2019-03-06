@@ -19,17 +19,23 @@ class Employes
     private $id;
 
     /**
+     * @var string $nom
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $nom;
 
     /**
+     * @var string $prenom
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $prenom;
 
     /**
+     * @var string $job
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $job;
 

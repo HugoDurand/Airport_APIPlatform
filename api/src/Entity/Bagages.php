@@ -19,17 +19,21 @@ class Bagages
     private $id;
 
     /**
+     * @var Clients $client
      * @ORM\ManyToOne(targetEntity="App\Entity\Clients")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank
      */
     private $client;
 
     /**
+     * @var integer $poid
      * @ORM\Column(type="integer", nullable=true)
      */
     private $poid;
 
     /**
+     * @var boolean $soute
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $soute;

@@ -19,18 +19,23 @@ class Avions
     private $id;
 
     /**
+     * @var string $type
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $type;
 
     /**
+     * @var integer $nombrePlaces
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
      */
     private $nombrePlaces;
 
     /**
+     * @var Compagnies $compagnie
      * @ORM\ManyToOne(targetEntity="App\Entity\Compagnies")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank
      */
     private $compagnie;
 

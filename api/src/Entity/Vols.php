@@ -21,56 +21,78 @@ class Vols
     private $id;
 
     /**
+     * @var string $numero
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $numero;
 
     /**
+     * @var Avions $avion
      * @ORM\ManyToOne(targetEntity="App\Entity\Avions")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank
      */
     private $avion;
 
     /**
+     * @var \DateTime $heureDepart
      * @ORM\Column(type="datetime")
+     * @Assert\NotBlank
+     * @Assert\DateTime
      */
     private $heureDepart;
 
     /**
+     * @var \DateTime $heureArrivee
      * @ORM\Column(type="datetime")
+     * @Assert\NotBlank
+     * @Assert\DateTime
      */
     private $heureArrivee;
 
     /**
+     * @var Aeroports $aeroportDepart
      * @ORM\ManyToOne(targetEntity="App\Entity\Aeroports")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank
      */
     private $aeroportDepart;
 
     /**
+     * @var Aeroports $aeroportArrivee
      * @ORM\ManyToOne(targetEntity="App\Entity\Aeroports")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank
      */
     private $aeroportArrivee;
 
     /**
+     * @var integer $prix
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
      */
     private $prix;
 
     /**
+     * @var Pistes $piste
      * @ORM\ManyToOne(targetEntity="App\Entity\Pistes")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank
      */
     private $piste;
 
     /**
+     * @var boolean $escales
      * @ORM\Column(type="boolean")
+     * @Assert\NotBlank
      */
     private $escales;
 
     /**
+     * @var Employes $employes
      * @ORM\ManyToMany(targetEntity="App\Entity\Employes")
+     * @Assert\NotBlank
      */
     private $employes;
 
