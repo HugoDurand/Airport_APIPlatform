@@ -49,7 +49,6 @@ class Vols
      * @ORM\Column(type="datetime")
      * @Assert\NotBlank
      * @Assert\DateTime
-     * @Assert\GreaterThan($heureDepart)
      */
     private $heureArrivee;
 

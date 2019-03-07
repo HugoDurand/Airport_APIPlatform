@@ -18,25 +18,25 @@ class VolsFixtures extends Fixture implements DependentFixtureInterface
         $pistes = $manager->getRepository(Pistes::class)->findAll();
         $employes = $manager->getRepository(Employes::class)->findAll();
 
-        $aeroportsData = [
+        $volsData = [
             ['U568RF', $avions[0], new \DateTime(), new \DateTime('+1 hour'), $aeroports[0], $aeroports[1], 300, $pistes[0], FALSE, $employes],
             ['RT437J', $avions[1], new \DateTime(), new \DateTime('+1 hour'), $aeroports[1], $aeroports[0], 200, $pistes[1], FALSE, $employes],
         ];
 
-        foreach ($aeroportsData as [$numero, $avion, $heureDepart, $heureArrivee, $aeroportDepart, $aeroportArrivee, $prix, $piste, $escales, $employes]) {
-            $aeroports = new Vols();
-            $aeroports->setNumero($numero);
-            $aeroports->setAvion($avion);
-            $aeroports->setHeureDepart($heureDepart);
-            $aeroports->setHeureArrivee($heureArrivee);
-            $aeroports->setAeroportDepart($aeroportDepart);
-            $aeroports->setAeroportArrivee($aeroportArrivee);
-            $aeroports->setPrix($prix);
-            $aeroports->setPiste($piste);
-            $aeroports->setEscales($escales);
-            $aeroports->addEmploye($employes);
+        foreach ($volsData as [$numero, $avion, $heureDepart, $heureArrivee, $aeroportDepart, $aeroportArrivee, $prix, $piste, $escales, $employes]) {
+            $vols = new Vols();
+            $vols->setNumero($numero);
+            $vols->setAvion($avion);
+            $vols->setHeureDepart($heureDepart);
+            $vols->setHeureArrivee($heureArrivee);
+            $vols->setAeroportDepart($aeroportDepart);
+            $vols->setAeroportArrivee($aeroportArrivee);
+            $vols->setPrix($prix);
+            $vols->setPiste($piste);
+            $vols->setEscales($escales);
+            $vols->addEmploye($employes[array_rand($employes)]);
 
-            $manager->persist($aeroports);
+            $manager->persist($vols);
         }
         $manager->flush();
     }
