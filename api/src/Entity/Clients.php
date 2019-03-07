@@ -5,10 +5,25 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\ClientsRepository")
+ * @ApiResource(
+ *     attributes={"access_control"="is_granted('ROLE_USER')"},
+ *     normalizationContext={"groups"={"clients_read"}},
+ *     denormalizationContext={"groups"={"clients_write"}},
+ *     collectionOperations={
+ *          "get",
+ *          "post",
+ *     },
+ *     itemOperations={
+ *          "get",
+ *          "put",
+ *          "delete"={"access_control"="is_granted('ROLE_ADMIN')",  "access_control_message"="Seul les admins peuvent supprimer des clients."}
+ *     }
+ * )
  */
 class Clients
 {
@@ -23,6 +38,7 @@ class Clients
      * @var string $nom
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
+     * @Groups({"clients_read", "clients_write"})
      */
     private $nom;
 
@@ -30,6 +46,7 @@ class Clients
      * @var string $prenom
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
+     * @Groups({"clients_read", "clients_write"})
      */
     private $prenom;
 
@@ -37,6 +54,7 @@ class Clients
      * @var string $numeroTitreIdentite
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
+     * @Groups({"clients_read", "clients_write"})
      */
     private $numeroTitreIdentite;
 
@@ -44,6 +62,7 @@ class Clients
      * @var integer $age
      * @ORM\Column(type="integer")
      * @Assert\NotBlank
+     * @Groups({"clients_read", "clients_write"})
      */
     private $age;
 
@@ -51,6 +70,7 @@ class Clients
      * @var string $sexe
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
+     * @Groups({"clients_read", "clients_write"})
      */
     private $sexe;
 
@@ -59,6 +79,7 @@ class Clients
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
      * @Assert\Email
+     * @Groups({"clients_read", "clients_write"})
      */
     private $email;
 
@@ -66,6 +87,7 @@ class Clients
      * @var integer $tel
      * @ORM\Column(type="integer")
      * @Assert\NotBlank
+     * @Groups({"clients_read", "clients_write"})
      */
     private $tel;
 
@@ -73,6 +95,7 @@ class Clients
      * @var string $adresse
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
+     * @Groups({"clients_read", "clients_write"})
      */
     private $adresse;
 

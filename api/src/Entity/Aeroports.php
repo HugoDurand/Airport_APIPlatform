@@ -5,10 +5,25 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\AeroportsRepository")
+ * @ApiResource(
+ *     attributes={"access_control"="is_granted('ROLE_USER')"},
+ *     normalizationContext={"groups"={"aeroports_read"}},
+ *     denormalizationContext={"groups"={"aeroports_write"}},
+ *     collectionOperations={
+ *          "get",
+ *          "post"={"access_control"="is_granted('ROLE_ADMIN')", "access_control_message"="Seul les admins peuvent ajouter des Aeroports."}
+ *     },
+ *     itemOperations={
+ *          "get",
+ *          "put"={"access_control"="is_granted('ROLE_ADMIN')",  "access_control_message"="Seul les admins peuvent modifier des Aeroports."},
+ *          "delete"={"access_control"="is_granted('ROLE_ADMIN')",  "access_control_message"="Seul les admins peuvent supprimer des Aeroports."}
+ *     }
+ * )
  */
 class Aeroports
 {
@@ -23,6 +38,7 @@ class Aeroports
      * @var string $nom
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
+     * @Groups({"aeroports_read", "aeroports_write"})
      */
     private $nom;
 
@@ -30,6 +46,7 @@ class Aeroports
      * @var string $pays
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
+     * @Groups({"aeroports_read", "aeroports_write"})
      */
     private $pays;
 

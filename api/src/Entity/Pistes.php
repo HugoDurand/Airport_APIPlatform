@@ -7,10 +7,25 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\PistesRepository")
+ * @ApiResource(
+ *     attributes={"access_control"="is_granted('ROLE_USER')"},
+ *     normalizationContext={"groups"={"pistes_read"}},
+ *     denormalizationContext={"groups"={"pistes_write"}},
+ *     collectionOperations={
+ *          "get",
+ *          "post"={"access_control"="is_granted('ROLE_ADMIN')", "access_control_message"="Seul les admins peuvent ajouter des pistes."}
+ *     },
+ *     itemOperations={
+ *          "get",
+ *          "put"={"access_control"="is_granted('ROLE_ADMIN')",  "access_control_message"="Seul les admins peuvent modifier des pistes."},
+ *          "delete"={"access_control"="is_granted('ROLE_ADMIN')",  "access_control_message"="Seul les admins peuvent supprimer des pistes."}
+ *     }
+ * )
  */
 class Pistes
 {
@@ -25,6 +40,7 @@ class Pistes
      * @var string $numero
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
+     * @Groups({"pistes_read", "pistes_write"})
      */
     private $numero;
 
@@ -32,6 +48,7 @@ class Pistes
      * @var Employes $employes
      * @ORM\ManyToMany(targetEntity="App\Entity\Employes")
      * @Assert\NotBlank
+     * @Groups({"pistes_read", "pistes_write"})
      */
     private $employes;
 

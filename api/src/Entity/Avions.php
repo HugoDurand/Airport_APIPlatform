@@ -5,10 +5,25 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\AvionsRepository")
+ * @ApiResource(
+ *     attributes={"access_control"="is_granted('ROLE_USER')"},
+ *     normalizationContext={"groups"={"avions_read"}},
+ *     denormalizationContext={"groups"={"avions_write"}},
+ *     collectionOperations={
+ *          "get",
+ *          "post"={"access_control"="is_granted('ROLE_ADMIN')", "access_control_message"="Seul les admins peuvent ajouter des avions."}
+ *     },
+ *     itemOperations={
+ *          "get",
+ *          "put"={"access_control"="is_granted('ROLE_ADMIN')",  "access_control_message"="Seul les admins peuvent modifier des avions."},
+ *          "delete"={"access_control"="is_granted('ROLE_ADMIN')",  "access_control_message"="Seul les admins peuvent supprimer des avions."}
+ *     }
+ * )
  */
 class Avions
 {
@@ -22,6 +37,7 @@ class Avions
     /**
      * @var string $type
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"avions_read", "avions_write"})
      */
     private $type;
 
@@ -29,6 +45,7 @@ class Avions
      * @var integer $nombrePlaces
      * @ORM\Column(type="integer")
      * @Assert\NotBlank
+     * @Groups({"avions_read", "avions_write"})
      */
     private $nombrePlaces;
 
@@ -37,6 +54,7 @@ class Avions
      * @ORM\ManyToOne(targetEntity="App\Entity\Compagnies")
      * @ORM\JoinColumn(nullable=false)
      * @Assert\NotBlank
+     * @Groups({"avions_read", "avions_write"})
      */
     private $compagnie;
 

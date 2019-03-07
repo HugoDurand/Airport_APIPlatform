@@ -6,11 +6,26 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\UsersRepository")
  * @ORM\Table("user_account")
+ * @ApiResource(
+ *     attributes={"access_control"="is_granted('ROLE_USER')"},
+ *     normalizationContext={"groups"={"users_read"}},
+ *     denormalizationContext={"groups"={"users_write"}},
+ *     collectionOperations={
+ *          "get",
+ *          "post"={"access_control"="is_granted('ROLE_ADMIN')", "access_control_message"="Seul les admins peuvent ajouter des users."}
+ *     },
+ *     itemOperations={
+ *          "get",
+ *          "put"={"access_control"="object.owner == user", "denormalization_context"={"groups" = {"users_user_write"}}},
+ *          "delete"={"access_control"="is_granted('ROLE_ADMIN')",  "access_control_message"="Seul les admins peuvent supprimer des users."}
+ *     }
+ * )
  */
 class Users implements UserInterface
 {
@@ -24,6 +39,7 @@ class Users implements UserInterface
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      * @Assert\NotBlank
+     * @Groups({"users_read", "users_write"})
      */
     private $email;
 
@@ -31,6 +47,7 @@ class Users implements UserInterface
      * @var array $roles
      * @ORM\Column(type="json")
      * @Assert\NotBlank
+     * @Groups({"users_read", "users_user_write"})
      */
     private $roles = [];
 
@@ -38,6 +55,7 @@ class Users implements UserInterface
      * @var string The hashed password
      * @ORM\Column(type="string")
      * @Assert\NotBlank
+     * @Groups({"users_read", "users_write"})
      */
     private $password;
 

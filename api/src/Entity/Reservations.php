@@ -7,10 +7,25 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\ReservationsRepository")
+ * @ApiResource(
+ *     attributes={"access_control"="is_granted('ROLE_USER')"},
+ *     normalizationContext={"groups"={"reservations_read"}},
+ *     denormalizationContext={"groups"={"reservations_write"}},
+ *     collectionOperations={
+ *          "get",
+ *          "post"={"access_control"="is_granted('ROLE_ADMIN')", "access_control_message"="Seul les admins peuvent ajouter des reservations."}
+ *     },
+ *     itemOperations={
+ *          "get",
+ *          "put"={"access_control"="object.owner == user", "denormalization_context"={"groups" = {"reservations_user_write"}}},
+ *          "delete"={"access_control"="is_granted('ROLE_ADMIN')",  "access_control_message"="Seul les admins peuvent supprimer des reservations."}
+ *     }
+ * )
  */
 class Reservations
 {
@@ -25,6 +40,7 @@ class Reservations
      * @var  string $numero
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
+     * @Groups({"reservations_read", "reservations_write"})
      */
     private $numero;
 
@@ -32,6 +48,7 @@ class Reservations
      * @var  Clients $clients
      * @ORM\ManyToMany(targetEntity="App\Entity\Clients")
      * @Assert\NotBlank
+     * @Groups({"reservations_read", "reservations_write"})
      */
     private $clients;
 
@@ -40,6 +57,7 @@ class Reservations
      * @ORM\ManyToOne(targetEntity="App\Entity\Vols")
      * @ORM\JoinColumn(nullable=false)
      * @Assert\NotBlank
+     * @Groups({"reservations_read", "reservations_write"})
      */
     private $vol;
 
@@ -47,6 +65,7 @@ class Reservations
      * @var  string $classe
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
+     * @Groups({"reservations_read", "reservations_write"})
      */
     private $classe;
 
@@ -54,6 +73,7 @@ class Reservations
      * @var boolean $checkIn
      * @ORM\Column(type="boolean")
      * @Assert\NotBlank
+     * @Groups({"reservations_read", "reservations_user_write"})
      */
     private $checkIn;
 

@@ -7,10 +7,25 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\VolsRepository")
+ * @ApiResource(
+ *     attributes={"access_control"="is_granted('ROLE_USER')"},
+ *     normalizationContext={"groups"={"vols_read"}},
+ *     denormalizationContext={"groups"={"vols_write"}},
+ *     collectionOperations={
+ *          "get",
+ *          "post"={"access_control"="is_granted('ROLE_ADMIN')", "access_control_message"="Seul les admins peuvent ajouter des vols."}
+ *     },
+ *     itemOperations={
+ *          "get",
+ *          "put"={"access_control"="is_granted('ROLE_ADMIN')",  "access_control_message"="Seul les admins peuvent modifier des vols."},
+ *          "delete"={"access_control"="is_granted('ROLE_ADMIN')",  "access_control_message"="Seul les admins peuvent supprimer des vols."}
+ *     }
+ * )
  */
 class Vols
 {
@@ -25,6 +40,7 @@ class Vols
      * @var string $numero
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
+     * @Groups({"vols_read", "vols_write"})
      */
     private $numero;
 
@@ -33,6 +49,7 @@ class Vols
      * @ORM\ManyToOne(targetEntity="App\Entity\Avions")
      * @ORM\JoinColumn(nullable=false)
      * @Assert\NotBlank
+     * @Groups({"vols_read", "vols_write"})
      */
     private $avion;
 
@@ -41,6 +58,7 @@ class Vols
      * @ORM\Column(type="datetime")
      * @Assert\NotBlank
      * @Assert\DateTime
+     * @Groups({"vols_read", "vols_write"})
      */
     private $heureDepart;
 
@@ -49,6 +67,7 @@ class Vols
      * @ORM\Column(type="datetime")
      * @Assert\NotBlank
      * @Assert\DateTime
+     * @Groups({"vols_read", "vols_write"})
      */
     private $heureArrivee;
 
@@ -57,6 +76,7 @@ class Vols
      * @ORM\ManyToOne(targetEntity="App\Entity\Aeroports")
      * @ORM\JoinColumn(nullable=false)
      * @Assert\NotBlank
+     * @Groups({"vols_read", "vols_write"})
      */
     private $aeroportDepart;
 
@@ -65,6 +85,7 @@ class Vols
      * @ORM\ManyToOne(targetEntity="App\Entity\Aeroports")
      * @ORM\JoinColumn(nullable=false)
      * @Assert\NotBlank
+     * @Groups({"vols_read", "vols_write"})
      */
     private $aeroportArrivee;
 
@@ -72,6 +93,7 @@ class Vols
      * @var integer $prix
      * @ORM\Column(type="integer")
      * @Assert\NotBlank
+     * @Groups({"vols_read", "vols_write"})
      */
     private $prix;
 
@@ -80,6 +102,7 @@ class Vols
      * @ORM\ManyToOne(targetEntity="App\Entity\Pistes")
      * @ORM\JoinColumn(nullable=false)
      * @Assert\NotBlank
+     * @Groups({"vols_read", "vols_write"})
      */
     private $piste;
 
@@ -87,6 +110,7 @@ class Vols
      * @var boolean $escales
      * @ORM\Column(type="boolean")
      * @Assert\NotBlank
+     * @Groups({"vols_read", "vols_write"})
      */
     private $escales;
 
@@ -94,6 +118,7 @@ class Vols
      * @var Employes $employes
      * @ORM\ManyToMany(targetEntity="App\Entity\Employes")
      * @Assert\NotBlank
+     * @Groups({"vols_read", "vols_write"})
      */
     private $employes;
 
