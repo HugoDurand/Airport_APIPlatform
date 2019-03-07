@@ -22,3 +22,4 @@ class CompagniesFixtures extends Fixture
         $manager->flush();
     }
 }
+

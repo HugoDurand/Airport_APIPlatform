@@ -51,3 +51,4 @@ class VolsFixtures extends Fixture implements DependentFixtureInterface
         );
     }
 }
+

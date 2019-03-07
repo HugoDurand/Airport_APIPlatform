@@ -22,3 +22,4 @@ class AeroportsFixtures extends Fixture
         $manager->flush();
     }
 }
+

@@ -29,3 +29,4 @@ class ClientsFixtures extends Fixture
         $manager->flush();
     }
 }
+

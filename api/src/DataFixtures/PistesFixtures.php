@@ -34,3 +34,4 @@ class PistesFixtures extends Fixture implements DependentFixtureInterface
         );
     }
 }
+

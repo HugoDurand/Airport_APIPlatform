@@ -2,7 +2,6 @@
 namespace App\DataFixtures;
 use App\Entity\Bagages;
 use App\Entity\Clients;
-use App\Entity\Employes;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -36,3 +35,4 @@ class BagagesFixtures extends Fixture implements DependentFixtureInterface
         );
     }
 }
+

@@ -34,3 +34,4 @@ class AvionsFixtures extends Fixture implements DependentFixtureInterface
         );
     }
 }
+
