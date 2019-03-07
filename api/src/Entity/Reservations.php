@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Core\Annotation\ApiSubresource;
 
 /**
  * @ApiResource()
@@ -44,13 +45,6 @@ class Reservations
      */
     private $numero;
 
-    /**
-     * @var  Clients $clients
-     * @ORM\ManyToMany(targetEntity="App\Entity\Clients")
-     * @Assert\NotBlank
-     * @Groups({"reservations_read", "reservations_write"})
-     */
-    private $clients;
 
     /**
      * @var Vols $vol
@@ -58,6 +52,7 @@ class Reservations
      * @ORM\JoinColumn(nullable=false)
      * @Assert\NotBlank
      * @Groups({"reservations_read", "reservations_write"})
+     * @ApiSubresource
      */
     private $vol;
 
@@ -77,6 +72,15 @@ class Reservations
      */
     private $checkIn;
 
+    /**
+     * @var  Clients $clients
+     * @ORM\ManyToMany(targetEntity="App\Entity\Clients")
+     * @Assert\NotBlank
+     * @Groups({"reservations_read", "reservations_write"})
+     * @ApiSubresource
+     */
+    private $clients;
+
     public function __construct()
     {
         $this->clients = new ArrayCollection();
@@ -95,32 +99,6 @@ class Reservations
     public function setNumero(string $numero): self
     {
         $this->numero = $numero;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Clients[]
-     */
-    public function getClients(): Collection
-    {
-        return $this->clients;
-    }
-
-    public function addClient(Clients $client): self
-    {
-        if (!$this->clients->contains($client)) {
-            $this->clients[] = $client;
-        }
-
-        return $this;
-    }
-
-    public function removeClient(Clients $client): self
-    {
-        if ($this->clients->contains($client)) {
-            $this->clients->removeElement($client);
-        }
 
         return $this;
     }
@@ -157,6 +135,32 @@ class Reservations
     public function setCheckIn(bool $checkIn): self
     {
         $this->checkIn = $checkIn;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Clients[]
+     */
+    public function getClients(): Collection
+    {
+        return $this->clients;
+    }
+
+    public function addClient(Clients $client): self
+    {
+        if (!$this->clients->contains($client)) {
+            $this->clients[] = $client;
+        }
+
+        return $this;
+    }
+
+    public function removeClient(Clients $client): self
+    {
+        if ($this->clients->contains($client)) {
+            $this->clients->removeElement($client);
+        }
 
         return $this;
     }

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiSubresource;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Serializer\Annotation\Groups;
@@ -40,6 +41,7 @@ class Bagages
      * @ORM\JoinColumn(nullable=false)
      * @Assert\NotBlank
      * @Groups({"bagages_read", "bagages_write"})
+     * @ApiSubresource
      */
     private $client;
 

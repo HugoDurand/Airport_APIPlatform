@@ -91,6 +91,9 @@
       <path value="$PROJECT_DIR$/api/vendor/zendframework/zend-eventmanager" />
       <path value="$PROJECT_DIR$/api/vendor/ocramius/package-versions" />
       <path value="$PROJECT_DIR$/api/vendor/ocramius/proxy-manager" />
+      <path value="$PROJECT_DIR$/api/vendor/lexik/jwt-authentication-bundle" />
+      <path value="$PROJECT_DIR$/api/vendor/namshi/jose" />
+      <path value="$PROJECT_DIR$/api/vendor/lcobucci/jwt" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />
