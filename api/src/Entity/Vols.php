@@ -66,6 +66,7 @@ class Vols
      * @ORM\Column(type="datetime")
      * @Assert\NotBlank
      * @Assert\DateTime
+     * @Assert\GreaterThan("heureDepart")
      * @Groups({"vols_read", "vols_write"})
      */
     private $heureArrivee;
@@ -84,6 +85,7 @@ class Vols
      * @ORM\ManyToOne(targetEntity="App\Entity\Aeroports")
      * @ORM\JoinColumn(nullable=false)
      * @Assert\NotBlank
+     * @Assert\NotEqualTo("aeroportDepart")
      * @Groups({"vols_read", "vols_write"})
      */
     private $aeroportArrivee;

@@ -9,8 +9,8 @@ class ClientsFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $clientsData = [
-            ['BEAL', 'Nathalie', '4567898765', '53', 'F', 'nath@gmail.com', 0345264731, '45 rue fegrat'],
-            ['DURAND', 'Marc', '2345432345', '58', 'M', 'marc@gmail.com', 0345264731, '45 rue fegrat'],
+            ['BEAL', 'Nathalie', 'FR4567898765', '53', 'F', 'nath@gmail.com', 0345264731, '45 rue fegrat'],
+            ['DURAND', 'Marc', 'EN2345432345', '58', 'M', 'marc@gmail.com', 0345264731, '45 rue fegrat'],
         ];
 
         foreach ($clientsData as [$nom, $prenom, $numeroTitreIdentite, $age, $sexe, $email, $tel, $adresse]) {

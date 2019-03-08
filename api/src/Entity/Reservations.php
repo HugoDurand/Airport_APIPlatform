@@ -66,7 +66,6 @@ class Reservations
     /**
      * @var boolean $checkIn
      * @ORM\Column(type="boolean")
-     * @Assert\NotBlank
      * @Groups({"reservations_read", "reservations_user_write"})
      */
     private $checkIn;

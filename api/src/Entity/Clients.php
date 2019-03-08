@@ -3,12 +3,11 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
-use ApiPlatform\Core\Annotation\ApiSubresource;
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Serializer\Annotation\Groups;
+use App\Validator\Constraints\ContainsCountryIdentifier;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ClientsRepository")
@@ -56,6 +55,7 @@ class Clients
      * @var string $numeroTitreIdentite
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
+     * @ContainsCountryIdentifier
      * @Groups({"clients_read", "clients_write"})
      */
     private $numeroTitreIdentite;
@@ -86,8 +86,8 @@ class Clients
     private $email;
 
     /**
-     * @var integer $tel
-     * @ORM\Column(type="integer")
+     * @var string $tel
+     * @ORM\Column(type="string")
      * @Assert\NotBlank
      * @Groups({"clients_read", "clients_write"})
      */
