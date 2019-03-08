@@ -10,7 +10,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\PistesRepository")
  * @ApiResource(
  *     attributes={"access_control"="is_granted('ROLE_USER')"},

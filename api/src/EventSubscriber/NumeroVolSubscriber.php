@@ -6,7 +6,6 @@ namespace App\EventSubscriber;
 use ApiPlatform\Core\EventListener\EventPriorities;
 use App\Entity\Vols;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
@@ -26,7 +25,7 @@ final class NumeroVolSubscriber implements EventSubscriberInterface
         if (!$vol instanceof Vols) {
             return;
         }
-        $number = md5(uniqid(rand(), true));
+        $number = substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 8);
 
         $vol->setNumero($number);
     }

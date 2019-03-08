@@ -11,7 +11,6 @@ use Symfony\Component\Serializer\Annotation\Groups;
 use ApiPlatform\Core\Annotation\ApiSubresource;
 
 /**
- * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\ReservationsRepository")
  * @ApiResource(
  *     attributes={"access_control"="is_granted('ROLE_USER')"},

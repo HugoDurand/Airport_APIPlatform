@@ -10,7 +10,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\VolsRepository")
  * @ApiResource(
  *     attributes={"access_control"="is_granted('ROLE_USER')"},
@@ -40,7 +39,7 @@ class Vols
      * @var string $numero
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
-     * @Groups({"vols_read", "vols_write"})
+     * @Groups({"vols_read"})
      */
     private $numero;
 
