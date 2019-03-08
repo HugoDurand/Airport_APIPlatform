@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3fa9b984-a037-469b-abcb-ec35e45c4afe" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/api/src/Validator/Constraints/ContainsCountryIdentifierValidator.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/Validator/Constraints/ContainsCountryIdentifierValidator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/DataFixtures/UsersFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/DataFixtures/UsersFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/Entity/Users.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/Entity/Users.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -77,7 +78,7 @@
           <entry key="js" value="8" />
           <entry key="json" value="1" />
           <entry key="jw" value="1" />
-          <entry key="php" value="129" />
+          <entry key="php" value="132" />
           <entry key="sql" value="1" />
           <entry key="yaml" value="19" />
           <entry key="yml" value="3" />
@@ -89,7 +90,7 @@
           <entry key="Dockerfile" value="1" />
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="8" />
-          <entry key="PHP" value="130" />
+          <entry key="PHP" value="133" />
           <entry key="Scratch" value="1" />
           <entry key="TypeScript" value="1" />
           <entry key="UML" value="4" />
@@ -103,7 +104,7 @@
           <entry key="dummy" value="19" />
           <entry key="env" value="7" />
           <entry key="js" value="123" />
-          <entry key="php" value="3716" />
+          <entry key="php" value="3746" />
           <entry key="txt" value="3" />
           <entry key="yaml" value="50" />
         </counts>
@@ -112,7 +113,7 @@
         <counts>
           <entry key=".env file" value="7" />
           <entry key="JavaScript" value="123" />
-          <entry key="PHP" value="3747" />
+          <entry key="PHP" value="3777" />
           <entry key="PLAIN_TEXT" value="24" />
           <entry key="YAML" value="50" />
         </counts>
@@ -147,13 +148,49 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/src/Validator/Constraints/ContainsCountryIdentifierValidator.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
               <folding>
                 <element signature="e#45#88#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/src/EventSubscriber/HashPassword.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+              <folding>
+                <element signature="e#39#90#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/src/DataFixtures/UsersFixtures.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" column="50" selection-start-line="13" selection-start-column="50" selection-end-line="13" selection-end-column="50" />
+              <folding>
+                <element signature="e#34#55#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/api/src/Entity/Users.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="47" column="66" selection-start-line="47" selection-start-column="66" selection-end-line="47" selection-end-column="66" />
+              <folding>
+                <element signature="e#30#62#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -178,7 +215,6 @@
         <option value="$PROJECT_DIR$/api/config/packages/api_platform.yaml" />
         <option value="$PROJECT_DIR$/api/.env" />
         <option value="$PROJECT_DIR$/api/config/routes.yaml" />
-        <option value="$PROJECT_DIR$/api/src/DataFixtures/UsersFixtures.php" />
         <option value="$PROJECT_DIR$/api/src/Migrations/Version20190307201027.php" />
         <option value="$PROJECT_DIR$/api/src/Validator/Constraints/GreaterThanHeureDepart.php" />
         <option value="$PROJECT_DIR$/api/src/Validator/Constraints/GreaterThanHeureDepartValidator.php" />
@@ -192,7 +228,6 @@
         <option value="$PROJECT_DIR$/api/src/Entity/Compagnies.php" />
         <option value="$PROJECT_DIR$/api/src/Entity/Pistes.php" />
         <option value="$PROJECT_DIR$/api/src/Entity/Employes.php" />
-        <option value="$PROJECT_DIR$/api/src/Entity/Users.php" />
         <option value="$PROJECT_DIR$/api/src/EventSubscriber/HashPassword.php" />
         <option value="$PROJECT_DIR$/admin/src/components/Admin.js" />
         <option value="$PROJECT_DIR$/admin/src/authProvider.js" />
@@ -205,6 +240,8 @@
         <option value="$PROJECT_DIR$/api/src/DataFixtures/ClientsFixtures.php" />
         <option value="$PROJECT_DIR$/api/src/Entity/Clients.php" />
         <option value="$PROJECT_DIR$/api/src/Validator/Constraints/ContainsCountryIdentifierValidator.php" />
+        <option value="$PROJECT_DIR$/api/src/DataFixtures/UsersFixtures.php" />
+        <option value="$PROJECT_DIR$/api/src/Entity/Users.php" />
       </list>
     </option>
   </component>
@@ -459,7 +496,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34841000" />
+    <option name="totallyTimeSpent" value="35650000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="950" extended-state="0" />
@@ -698,16 +735,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/Entity/Users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-560">
-          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-          <folding>
-            <element signature="e#30#62#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/authProvider.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -818,16 +845,6 @@
         <state relative-caret-position="-825" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/EventSubscriber/HashPassword.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-          <folding>
-            <element signature="e#39#90#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/src/Entity/Vols.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="588">
@@ -868,16 +885,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/DataFixtures/UsersFixtures.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="e#34#55#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/src/DataFixtures/VolsFixtures.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="794">
@@ -908,9 +915,39 @@
     <entry file="file://$PROJECT_DIR$/api/src/Validator/Constraints/ContainsCountryIdentifierValidator.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
           <folding>
             <element signature="e#45#88#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/EventSubscriber/HashPassword.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+          <folding>
+            <element signature="e#39#90#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/DataFixtures/UsersFixtures.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="50" selection-start-line="13" selection-start-column="50" selection-end-line="13" selection-end-column="50" />
+          <folding>
+            <element signature="e#34#55#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/Entity/Users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="47" column="66" selection-start-line="47" selection-start-column="66" selection-end-line="47" selection-end-column="66" />
+          <folding>
+            <element signature="e#30#62#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

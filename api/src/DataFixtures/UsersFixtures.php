@@ -17,7 +17,7 @@ class UsersFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $usersData = [
-            ['machin@gmail.com', ['ROLE_USER'], 'myPassword'],
+            ['machin@gmail.com', ['ROLE_ADMIN'], 'myPassword'],
             ['truc@gmail.com', ['ROLE_USER'], 'myPassword2'],
         ];
 

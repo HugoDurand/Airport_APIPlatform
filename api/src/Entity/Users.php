@@ -21,7 +21,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
  *     },
  *     itemOperations={
  *          "get",
- *          "put"={"access_control"="object.owner == user", "denormalization_context"={"groups" = {"users_user_write"}}},
+ *          "put"={"access_control"="object.owner == user", "denormalization_context"={"groups" = {"users_user_write"}}, "normalization_context"={"groups" = {"users_user_read"}}},
  *          "delete"={"access_control"="is_granted('ROLE_ADMIN')",  "access_control_message"="Seul les admins peuvent supprimer des users."}
  *     }
  * )
@@ -45,8 +45,7 @@ class Users implements UserInterface
     /**
      * @var array $roles
      * @ORM\Column(type="json")
-     * @Assert\NotBlank
-     * @Groups({"users_read", "users_user_write"})
+     * @Groups({"users_read", "users_user_write", "users_user_read"})
      */
     private $roles = [];
 
