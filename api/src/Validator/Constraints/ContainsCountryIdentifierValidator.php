@@ -19,7 +19,7 @@ class ContainsCountryIdentifierValidator extends ConstraintValidator
             return;
         }
 
-        if (!preg_match('^[A-Z]{2,}', $value, $matches)) {
+        if (!preg_match('/^[A-Z]{2,}/', $value, $matches)) {
             $this->context->buildViolation($constraint->message)
                 ->setParameter('{{ string }}', $value)
                 ->addViolation();
